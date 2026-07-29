@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>库存出入库系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .menu-item:hover {
+            background: #e8f4f8;
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .menu-item:active {
+            transform: translateY(0);
+        }
+
+        .menu-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .icon-1 {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        }
+
+        .icon-2 {
+            background: linear-gradient(135deg, #e17055 0%, #d63031 100%);
+        }
+
+        .icon-3 {
+            background: linear-gradient(135deg, #0984e3 0%, #6c5ce7 100%);
+        }
+
+        .menu-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .menu-info {
+            flex: 1;
+        }
+
+        .menu-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .menu-desc {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .menu-arrow {
+            width: 24px;
+            height: 24px;
+            fill: #999;
+            flex-shrink: 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .menu-item {
+                padding: 16px;
+            }
+
+            .menu-icon {
+                width: 44px;
+                height: 44px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>库存出入库系统</h1>
+            <p>请选择要填写的表单</p>
+        </div>
+
+        <div class="menu-list">
+            <a href="https://www.kdocs.cn/wo/sl/v1KjVyM" class="menu-item" target="_blank">
+                <div class="menu-icon icon-1">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </div>
+                <div class="menu-info">
+                    <div class="menu-title">采集-入库登记</div>
+                    <div class="menu-desc">记录新采集的鸟只入库信息</div>
+                </div>
+                <svg class="menu-arrow" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                </svg>
+            </a>
+
+            <a href="https://www.kdocs.cn/wo/sl/v13cOSrh" class="menu-item" target="_blank">
+                <div class="menu-icon icon-2">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <div class="menu-info">
+                    <div class="menu-title">鸟异常登记录入</div>
+                    <div class="menu-desc">登记鸟只异常情况</div>
+                </div>
+                <svg class="menu-arrow" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                </svg>
+            </a>
+
+            <a href="https://www.kdocs.cn/wo/sl/v1zxRvp" class="menu-item" target="_blank">
+                <div class="menu-icon icon-3">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                </div>
+                <div class="menu-info">
+                    <div class="menu-title">零星出库录入登记表</div>
+                    <div class="menu-desc">记录鸟只出库信息</div>
+                </div>
+                <svg class="menu-arrow" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>库存出入库管理系统 v1.0</p>
+    </div>
+</body>
+</html>
